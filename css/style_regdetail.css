@@ -1,0 +1,307 @@
+/* ramenreg.php、ramendetail.php用css */
+@charset "utf-8";
+
+/* 共通 */
+h2 {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 2vh;
+}
+
+button {
+    padding: .5em 1em;
+    background-color: #606060;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #a2ac20;
+}
+
+.tab-button {
+    /* flex: 1; */
+    background: #606060;
+    border: none;
+    outline: none;
+    text-align: center;
+}
+
+.tab-button.active {
+    background: #ccc;
+    border-bottom: 2px solid #000;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* ramenreg.php用 */
+.form-container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 2%;
+    width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 1% auto 0 auto; /* 上下左右中央配置 */
+    font-size: 1em;
+    border: 2px double #ccc;
+}
+
+.form-container h1,
+.detail-container h1 {
+    width: 100%;
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 2em;
+    font-weight: bold;
+    border-bottom: 2px solid #858282;
+}
+.form-group {
+    margin-bottom: 1.5%;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5%;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 1%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    appearance: auto;
+}
+
+.form-group-inline,
+.form-group-inline-post {
+    display: flex;
+    gap: 10px;
+}
+
+.form-group-inline .form-group,
+.form-group-inline-post .form-group {
+    flex: 1;
+}
+
+.form-group input[type="file"] {
+    padding: .5%;
+}
+
+#image-prev {
+    margin-top: 1%;
+    max-width: 20%;
+    max-height: 20%;
+    display: none;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-group label {
+    font-weight: normal;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    border: 1px solid #ccc;
+    height: 20px;
+    appearance: auto;
+}
+
+#search_address {
+    margin: 2vh 0;  /* 高さ調整 */
+    font-size: 1em;
+}
+
+.formsubmit {
+    margin-top: 1%;
+    align-items: center;
+    font-size: 1.5em;
+}
+
+.image-entry {
+    margin-top: 1%;
+    border-bottom: 2px solid #696767;
+    padding-bottom: 1%;
+}
+
+.preview {
+    max-width: 20%;
+    max-height: 20%;
+    margin-top: 1%;
+    display: none;
+}
+
+/* ramendetail.php用 */
+.detail-container {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 800px;
+    min-height: 100vh;
+    background-color: #f8f8fa;
+    border-radius: 10px;
+    padding: 1%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.basic {
+    width: 70%;
+}
+
+dl {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    border: 2px double #919191;
+}
+
+dl div {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+}
+
+dt dd {
+    display: table-cell;
+    padding: .5em 1em;
+}
+
+dt {
+    padding: 2%;
+    /* width: 40%; */
+    flex: 1;
+    font-weight: bold;
+    background: #fff8ae;
+    color: #333;
+    border-right: 1px solid #ddd;
+}
+
+dd {
+    padding: 2%;
+    /* width: 100%; */
+    flex: 2;
+    margin: 0;
+}
+
+.imagearea {
+    display: grid;
+    gap: .5em;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagearea div {
+    text-align: center;
+    border: 1px solid #919191;
+    padding: 0.5em;
+    background: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.imagearea img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.imagearea div:hover {
+    border-color: #a2ac20;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 300;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(145, 145, 145, 0.8);
+}
+
+.modal-content {
+    display: block;
+    margin: auto;
+    max-width: 90%;
+    max-height: 80%;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #bbb;
+}
+
+#caption {
+    color: #fff;
+    text-align: center;
+    margin: 2%;
+    font-size: 1em;
+}
+
+#map {
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+}
+
+@media (min-width: 768px) {
+    .imagearea {
+        grid-template-columns: repeat(4, 1fr);;
+    }
+}
+
+@media (max-width: 767px) {
+    .imagearea {
+        grid-template-columns: repeat(2, 1fr);;
+    }
+
+    .form-group-inline {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .imagearea img {
+        max-width: 150px;
+    }
+
+    .tab-button {
+        padding: 0.5em;
+        font-size: .65em;
+    }
+}

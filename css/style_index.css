@@ -1,0 +1,244 @@
+/* index.php用css */
+@charset "utf-8";
+* {
+    box-sizing: border-box;
+}
+
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 5%;
+    height: 5vh;
+    background: #606060;
+    cursor: pointer;
+    z-index: 200;
+}
+
+.line {
+    margin: auto 0;
+    display: block;
+    background-color: #f4f2f2;
+    height: 1px;
+    width: 80%;
+    transition: transform .3s, opacity .3s;
+}
+
+/* ハンバーガーメニュー押下時に×に変更 */
+.hamburger-menu.open .line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+/* 中央の線は消す */
+.hamburger-menu.open .line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.open .line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.slide-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;    /* 初期は画面の外 */
+    width: 30%; /* スライドメニューの幅 */
+    height: 50%;    /* スライドメニューの高さ */
+    background-color: #969494;
+    box-shadow: -3px 0 5px rgba(0, 0, 0, 0.3);
+    transition: right .5s ease;    /* スライドアニメーション */
+    z-index: 100;
+    opacity: .8;
+}
+
+.slide-menu.open {
+    right: 0;   /* 画面内に表示 */
+}
+
+.slide-menu ul {
+    list-style: none;   /* 頭の中点を消去 */
+}
+
+.slide-menu ul li {
+    margin: 10% 0;   /* 各リンクの間隔調整 */
+}
+
+.slide-menu ul li a {
+    display: block;
+    padding: 3% 2%;
+    color: #fff;
+    font-size: 1em;
+    text-align: center;
+    transition: background-color .5s ease-in color .5s ease-in ;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;  /* 高さを画面分確保 */
+    /* GoogleFonts */
+    font-family: "Sawarabi Gothic", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: .65em;
+    /* ↓ 画面の上下左右中央配置のおまじない */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chakudon-video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.main {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.header {
+    position: relative; /* 背景画像に含めるため固定しない */
+    width: 100%;
+    height: 7vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2% 0 1%;
+    z-index: 2;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    height: 7vh;
+}
+
+.loginname {
+    font-size: 1.2em;
+    color: #fff;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);    /* 文字に影を見せて浮き出るように */
+}
+
+.nav-list {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-list a,
+.enter {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);    /* 文字に影を見せて浮き出るように */
+    transition: color 0.3s;
+}
+
+.nav-list a:hover,
+.enter:hover {
+    color: yellow;
+}
+
+.mainimg {
+    opacity: .7;    /* 背景画像を半透明化 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* 背景画像の比率を保って全体をカバー */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* 背景画像が最背面にくるように */
+}
+
+.maintitle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* ↓ 画面の上下左右中央配置のおまじない */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+    z-index: 5;
+}
+
+h1 {
+    font-size: 3.5em;
+}
+
+h2 {
+    font-size: 2.5em;
+}
+
+h1,h2 {
+    color: #fff;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);    /* 文字に影を見せて浮き出るように */
+    opacity: 0;
+    transform: translateY(100%);    /* 文字の高さ分だけ下に移動 */
+    animation: slideUp 1s ease-out forwards;    /* アニメーション適用 */
+}
+
+/* アニメーション定義 */
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);    /* 文字の高さ分だけ下に移動 */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);   /* 元の表示位置に戻る */
+    }
+}
+
+/* PCサイズ */
+@media (min-width: 768px) {
+    .hamburger-menu {
+        display: none;
+    }
+
+    .slide-menu {
+        display: none;
+    }
+}
+
+/* スマホサイズ */
+@media (max-width: 767px) {
+    header {
+        justify-content: space-between;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .nav-list {
+        display: none;
+    }
+}
+
